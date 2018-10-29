@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App'
+import Presentation from './components/Presentation'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 import './styles/scrollbar.css'
 
 
 ReactDOM.render(
-  <App/>,
+  <Router>
+    <Presentation/>
+  </Router>,
   document.getElementById('root')
 )

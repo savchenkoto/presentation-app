@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AddSlide = () => {
   return (
     <div className='addSlide box'>
-      <button className='addSlideButton'>Add Slide</button>
+      <Link to='/new-slide'>
+        <button className='addSlideButton'>Add Slide</button>
+      </Link>
     </div>
   )
 }

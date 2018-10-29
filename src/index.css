@@ -1,0 +1,41 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 3fr 11fr;
+    grid-column-gap: 1em;
+    grid-auto-rows: 98vh;
+}
+
+.box {
+    border-radius: 3px;
+    padding: 1em;
+    background-color: lightgray;
+}
+
+.sidebarWrapper {
+    display: grid;
+    grid-template-rows: 1fr 15fr;
+    grid-row-gap: 1em;
+}
+
+.slidesWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1em;
+    grid-auto-rows: 25vh;
+    overflow-y: scroll;
+}
+
+.slidesWrapper > div.slideIcon {
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.addSlide {
+    padding: 5px;
+}
+
+.addSlideButton {
+    width: 100%;
+    height: 100%;
+}
+

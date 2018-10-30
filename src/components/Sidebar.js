@@ -1,12 +1,13 @@
 import React from 'react'
 import AddSlide from './AddSlide'
-import Slides from './Slides'
+import SlidesList from './SlidesList'
+
 
 const Sidebar = () => {
   return (
     <div className='sidebar sidebarWrapper'>
       <AddSlide/>
-      <Slides/>
+      <SlidesList/>
     </div>
   )
 }

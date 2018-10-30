@@ -20,8 +20,8 @@
 .slidesWrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-row-gap: 1em;
-    grid-auto-rows: 25vh;
+    grid-row-gap: 2vh;
+    grid-auto-rows: minmax(min-content, max-content);
     overflow-y: scroll;
 }
 

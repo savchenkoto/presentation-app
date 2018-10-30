@@ -39,3 +39,11 @@
     height: 100%;
 }
 
+label {
+    display: block;
+    margin: 1em 0;
+}
+
+.slideIcon > img {
+    max-width: 100%;
+}

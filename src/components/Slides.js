@@ -1,8 +1,8 @@
 import React from 'react'
 import SlideMini from './SlideMini'
 
-const Slides = ({ images }) => (
-  images.map(image => <SlideMini key={image.id} image={image}/>)
+const Slides = ({ slides }) => (
+  slides.map(item => <SlideMini key={item.id} slide={item}/>)
 )
 
 export default Slides

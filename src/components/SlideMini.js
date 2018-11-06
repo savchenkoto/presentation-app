@@ -1,12 +1,10 @@
 import React from 'react'
 
 
-const SlideMini = ({ image }) => (
+const SlideMini = ({ slide }) => (
   <div className='slideIcon'>
-    <img
-      src={image.path}
-      alt='Slide'
-    />
+    <h1>{slide.header}</h1>
+    <p>{slide.text}</p>
   </div>
 )
 

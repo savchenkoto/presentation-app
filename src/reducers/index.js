@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import images from './images'
+import slides from './slides'
 
 export default combineReducers({
-  images
+  slides
 })

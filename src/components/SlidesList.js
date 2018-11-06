@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchImages } from '../actions/images'
+import { fetchSlides } from '../actions/slides'
 import Slides from './Slides'
 
 
 class SlidesList extends Component {
 
   componentDidMount () {
-    const { fetchImages } = this.props
-    fetchImages()
+    const { fetchSlides } = this.props
+    fetchSlides()
   }
 
   render () {
-    const { images } = this.props
+    const { slides } = this.props
     return (
       <div className='slidesWrapper box'>
-        <Slides images={images}/>
+        <Slides slides={slides}/>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  images: state.images
+  slides: state.slides
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchImages: () => dispatch(fetchImages())
+  fetchSlides: () => dispatch(fetchSlides())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesList)

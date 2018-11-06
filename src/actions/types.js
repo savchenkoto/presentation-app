@@ -1,1 +1,2 @@
-export const IMAGES_FETCHED = 'IMAGES_FETCHED'
+export const SLIDES_FETCHED = 'SLIDES_FETCHED'
+export const SLIDE_ADDED = 'SLIDE_ADDED'

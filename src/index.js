@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Presentation from './components/Presentation'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+import { createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
@@ -13,11 +12,7 @@ import './styles/scrollbar.css'
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(
-      thunk
-    )
-  )
+  composeWithDevTools()
 )
 
 ReactDOM.render(

@@ -1,11 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import Slide from './slide/index'
 
-const SlidesCarousel = () => {
+const SlidesCarousel = ({ slides }) => {
   return (
     <div className='box'>
-
+      <Slide slide={slides[0]}/>
     </div>
   )
 }
 
-export default SlidesCarousel
+const mapStateToProps = (state) => ({
+  slides: state.slides
+})
+
+export default connect(mapStateToProps)(SlidesCarousel)

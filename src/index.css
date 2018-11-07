@@ -7,7 +7,7 @@
 
 .box {
     border-radius: 3px;
-    padding: 1em;
+    padding: 1vw;
     background-color: lightgray;
 }
 
@@ -23,9 +23,10 @@
     grid-row-gap: 2vh;
     grid-auto-rows: minmax(min-content, max-content);
     overflow-y: scroll;
+    font-size: 0.35em;
 }
 
-.slidesWrapper > div.slideIcon {
+.slidesWrapper div.slide {
     border: 1px solid black;
     border-radius: 3px;
 }
@@ -44,6 +45,30 @@ label {
     margin: 1em 0;
 }
 
-.slideIcon > img {
-    max-width: 100%;
+/* slide decoration */
+
+div.header {
+    border: 1px solid red;
+    text-align: center;
+    font-size: 1em;
+}
+
+div.description {
+    border: 1px solid green;
+    word-break: break-word;
+    font-size: 1em;
+}
+
+div.slide {
+    background-color: white;
+    border: 2px solid darkgrey;
+    border-radius: 3px;
+    padding: 2em;
+    font-size: 1em;
+    min-height: 22vh;
+    height: 91%;
+}
+
+.slideWrapper {
+    max-height: 40vh;
 }

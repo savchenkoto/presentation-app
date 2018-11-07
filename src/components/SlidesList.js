@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchSlides } from '../actions/slides'
-import Slides from './Slides'
+import Slide from './slide/index'
 
 
 class SlidesList extends Component {
@@ -15,7 +15,11 @@ class SlidesList extends Component {
     const { slides } = this.props
     return (
       <div className='slidesWrapper box'>
-        <Slides slides={slides}/>
+        {slides.map(item => (
+          <div className='slideWrapper'>
+            <Slide key={item.id} slide={item}/>
+          </div>
+        ))}
       </div>
     )
   }

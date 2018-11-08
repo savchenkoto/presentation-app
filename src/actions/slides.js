@@ -26,10 +26,14 @@ export const addSlide = ({ slide, position }) => {
   existing.splice(position - 1, 0, slideWithId)
   localStorage.setItem('slides', JSON.stringify(existing))
 
+  return slideAdded(slideWithId, position)
+}
+
+export const slideAdded = (slide, position) => {
   return {
     type: types.SLIDE_ADDED,
     payload: {
-      slide: slideWithId,
+      slide,
       position
     }
   }

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 const ButtonLink = ({ to, text }) => {
   return (
-    <div className='addSlide box'>
+    <div className='add-slide box'>
       <Link to={to}>
-        <button className='addSlideButton'>{text}</button>
+        <button className='add-slide-button'>{text}</button>
       </Link>
     </div>
   )

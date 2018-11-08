@@ -22,9 +22,9 @@ class SlidesList extends Component {
     const { slides, deleteSlide } = this.props
     const SlideWithControlIcons = addControlIcons(Slide)
     return (
-      <div className='slidesWrapper box'>
+      <div className='slides-wrapper box'>
         {slides.map(item => (
-          <div key={item.id} className='slideWrapper'>
+          <div key={item.id} className='slide-wrapper'>
             <SlideWithControlIcons
               slide={item}
               selectSlide={this.handleClick}

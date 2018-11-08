@@ -5,7 +5,7 @@ import SlidesList from './SlidesList'
 
 const Sidebar = () => {
   return (
-    <div className='sidebar sidebarWrapper'>
+    <div className='sidebar sidebar-wrapper'>
       <ButtonLink to='/new-slide' text='Add Slide'/>
       <SlidesList/>
     </div>

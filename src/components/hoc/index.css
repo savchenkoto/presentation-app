@@ -1,22 +1,18 @@
-.slideControl {
+.slide-control {
     position: relative;
 
 }
 
-.slideControl > .control {
+.slide-control > .control {
     position: absolute;
     display: none;
 }
 
-.slideControl > .control.hovered {
+.slide-control > .control.hovered {
     display: block;
 }
 
-.slideControl >.control:hover {
-    display: block;
-}
-
-.slideControl > .control.deleteControl {
+.slide-control > .control.deleteControl {
     top: 5px;
     right: 7px;
     font-size: large;

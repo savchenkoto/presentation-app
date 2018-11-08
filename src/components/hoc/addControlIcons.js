@@ -12,7 +12,7 @@ const addControlIcons = (WrappedComponents) => {
       const { hovered } = this.state
       const { handleDelete } = this.props
       return (
-        <div className='slideControl'
+        <div className='slide-control'
              onMouseOver={() => hovered || this.setState({ hovered: true })}
              onMouseLeave={() => hovered && this.setState({ hovered: false })}
         >

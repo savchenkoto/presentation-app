@@ -12,13 +12,13 @@
     box-shadow: 0 0 5px black;
 }
 
-.sidebarWrapper {
+.sidebar-wrapper {
     display: grid;
     grid-template-rows: 1fr 15fr;
     grid-row-gap: 1em;
 }
 
-.slidesWrapper {
+.slides-wrapper {
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 2vh;
@@ -27,16 +27,16 @@
     font-size: 0.35em;
 }
 
-.slidesWrapper div.slide {
+.slides-wrapper div.slide {
     border: 1px solid black;
     border-radius: 3px;
 }
 
-.addSlide {
+.add-slide {
     padding: 5px;
 }
 
-.addSlideButton {
+.add-slide-button {
     width: 100%;
     height: 100%;
 }
@@ -68,6 +68,6 @@ div.slide {
     height: 91%;
 }
 
-.slideWrapper {
+.slide-wrapper {
     max-height: 40vh;
 }

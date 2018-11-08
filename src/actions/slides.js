@@ -35,6 +35,21 @@ export const addSlide = ({ slide, position }) => {
   }
 }
 
+
+export const deleteSlide = (slideId) => {
+  let existingSlides = JSON.parse(localStorage.getItem('slides'))
+  existingSlides.splice(slideId, 1)
+  localStorage.setItem('slides', JSON.stringify(existingSlides))
+  return slideDeleted(slideId)
+}
+
+export const slideDeleted = (slideId) => {
+  return {
+    type: types.SLIDE_DELETED,
+    slideId
+  }
+}
+
 export const selectSlide = (slideId) => {
   return {
     type: types.SLIDE_SELECTED,

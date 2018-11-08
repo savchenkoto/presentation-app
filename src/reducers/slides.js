@@ -14,6 +14,10 @@ export default function slides (state = [], action) {
         ...state.slice(action.payload.position - 1)
       ]
     }
+    case types.SLIDE_DELETED: {
+      return state.filter(slide => slide.id !== action.slideId)
+
+    }
     default:
       return state
   }

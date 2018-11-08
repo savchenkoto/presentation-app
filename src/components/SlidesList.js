@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchSlides, selectSlide } from '../actions/slides'
+import { fetchSlides, selectSlide, deleteSlide } from '../actions/slides'
 import Slide from './slide/index'
+import addControlIcons from './hoc/addControlIcons'
 
 
 class SlidesList extends Component {
@@ -18,17 +19,16 @@ class SlidesList extends Component {
   }
 
   render () {
-    const { slides } = this.props
+    const { slides, deleteSlide } = this.props
+    const SlideWithControlIcons = addControlIcons(Slide)
     return (
       <div className='slidesWrapper box'>
         {slides.map(item => (
-          <div
-            key={item.id}
-            className='slideWrapper'
-          >
-            <Slide
+          <div key={item.id} className='slideWrapper'>
+            <SlideWithControlIcons
               slide={item}
               selectSlide={this.handleClick}
+              handleDelete={() => deleteSlide(item.id)}
             />
           </div>
         ))}
@@ -44,7 +44,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlides: () => dispatch(fetchSlides()),
-  selectSlide: (slideId) => dispatch(selectSlide(slideId))
+  selectSlide: (slideId) => dispatch(selectSlide(slideId)),
+  deleteSlide: (slideId) => dispatch(deleteSlide(slideId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesList)

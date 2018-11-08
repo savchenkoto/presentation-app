@@ -1,0 +1,23 @@
+.slideControl {
+    position: relative;
+
+}
+
+.slideControl > .control {
+    position: absolute;
+    display: none;
+}
+
+.slideControl > .control.hovered {
+    display: block;
+}
+
+.slideControl >.control:hover {
+    display: block;
+}
+
+.slideControl > .control.deleteControl {
+    top: 5px;
+    right: 7px;
+    font-size: large;
+}

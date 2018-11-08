@@ -42,7 +42,8 @@ export const slideAdded = (slide, position) => {
 
 export const deleteSlide = (slideId) => {
   let existingSlides = JSON.parse(localStorage.getItem('slides'))
-  existingSlides.splice(slideId, 1)
+  const index = existingSlides.findIndex(slide => slide.id === slideId)
+  existingSlides.splice(index, 1)
   localStorage.setItem('slides', JSON.stringify(existingSlides))
   return slideDeleted(slideId)
 }

@@ -33,5 +33,11 @@ export const addSlide = ({ slide, position }) => {
       position
     }
   }
+}
 
+export const selectSlide = (slideId) => {
+  return {
+    type: types.SLIDE_SELECTED,
+    slideId
+  }
 }

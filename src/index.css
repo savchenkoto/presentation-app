@@ -9,6 +9,7 @@
     border-radius: 3px;
     padding: 1vw;
     background-color: lightgray;
+    box-shadow: 0 0 5px black;
 }
 
 .sidebarWrapper {
@@ -48,13 +49,11 @@ label {
 /* slide decoration */
 
 div.header {
-    border: 1px solid red;
     text-align: center;
     font-size: 1em;
 }
 
 div.description {
-    border: 1px solid green;
     word-break: break-word;
     font-size: 1em;
 }

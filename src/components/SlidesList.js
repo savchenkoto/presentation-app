@@ -8,9 +8,9 @@ import addControlIcons from './hoc/addControlIcons'
 class SlidesList extends Component {
 
   componentDidMount () {
-    const { fetchSlides, selectSlide, slides } = this.props
+    const { fetchSlides, selectSlide, slides, activeSlideId } = this.props
     fetchSlides()
-    slides.length && selectSlide(slides[0].id)
+    slides.length && slides[0].id !== activeSlideId && selectSlide(slides[0].id)
   }
 
   handleClick = (id) => {

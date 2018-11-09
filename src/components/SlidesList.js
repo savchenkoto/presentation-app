@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchSlides, selectSlide, deleteSlide } from '../actions/slides'
+import { fetchSlides, selectSlide } from '../actions/slides'
+import { changeActiveModalTo } from '../actions/modals'
 import Slide from './slide/index'
 import addControlIcons from './hoc/addControlIcons'
+import { modals } from './modals/Modals'
 
 
 class SlidesList extends Component {
@@ -19,7 +21,7 @@ class SlidesList extends Component {
   }
 
   render () {
-    const { slides, deleteSlide } = this.props
+    const { slides, changeActiveModal } = this.props
     const SlideWithControlIcons = addControlIcons(Slide)
     return (
       <div className='slides-wrapper box'>
@@ -28,7 +30,7 @@ class SlidesList extends Component {
             <SlideWithControlIcons
               slide={item}
               selectSlide={this.handleClick}
-              handleDelete={() => deleteSlide(item.id)}
+              handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
             />
           </div>
         ))}
@@ -45,7 +47,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchSlides: () => dispatch(fetchSlides()),
   selectSlide: (slideId) => dispatch(selectSlide(slideId)),
-  deleteSlide: (slideId) => dispatch(deleteSlide(slideId))
+  changeActiveModal: (modal, props) => dispatch(changeActiveModalTo(modal, props))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesList)

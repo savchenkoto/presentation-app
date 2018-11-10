@@ -1,12 +1,11 @@
 import React from 'react'
-import ButtonLink from './ButtonLink'
 import SlidesList from './SlidesList'
-
+import AddSlideButton from './AddSlideButton'
 
 const Sidebar = () => {
   return (
     <div className='sidebar sidebar-wrapper'>
-      <ButtonLink to='/new-slide' text='Add Slide'/>
+      <AddSlideButton/>
       <SlidesList/>
     </div>
   )

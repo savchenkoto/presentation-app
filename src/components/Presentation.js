@@ -1,13 +1,14 @@
 import React from 'react'
-import { Route } from 'react-router'
-import MainPage from './pages/MainPage'
-import AddSlidePage from './pages/AddSlidePage'
+import Sidebar from './Sidebar'
+import SlidesCarousel from './SlidesCarousel'
+import ModalsSwitcher from './modals/ModalsSwitcher'
 
 const Presentation = () => {
   return (
-    <div>
-      <Route exact path='/' component={MainPage}/>
-      <Route exact path='/new-slide' component={AddSlidePage}/>
+    <div className='wrapper'>
+      <Sidebar/>
+      <SlidesCarousel/>
+      <ModalsSwitcher/>
     </div>
   )
 }

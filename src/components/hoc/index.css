@@ -1,19 +1,19 @@
 .slide-control {
     position: relative;
-
 }
 
-.slide-control > .control {
+.slide-control > .controls {
     position: absolute;
     display: none;
-}
-
-.slide-control > .control.hovered {
-    display: block;
-}
-
-.slide-control > .control.deleteControl {
     top: 5px;
-    right: 7px;
-    font-size: large;
+    right: 5px;
+}
+
+.slide-control > .controls.hovered {
+    display: inline-grid;
+}
+
+.control {
+    font-size: small;
+    margin-bottom: 5px;
 }

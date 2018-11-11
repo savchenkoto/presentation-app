@@ -9,7 +9,7 @@ import './index.css'
 import './styles/scrollbar.css'
 
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   composeWithDevTools()
 )

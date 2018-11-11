@@ -31,6 +31,7 @@ class SlidesList extends Component {
             slide={item}
             selectSlide={this.handleClick}
             handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
+            handleEdit={() => changeActiveModal(modals.SLIDE_FORM, {slide: item})}
           />
         ))}
       </div>

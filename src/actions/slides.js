@@ -1,4 +1,5 @@
 import * as types from './types'
+import { store } from '../index'
 
 
 export const fetchSlides = () => {
@@ -23,7 +24,7 @@ export const addSlide = ({ slide, position }) => {
     id: sequence
   }
 
-  existing.splice(position - 1, 0, slideWithId)
+  existing.splice(position, 0, slideWithId)
   localStorage.setItem('slides', JSON.stringify(existing))
 
   return slideAdded(slideWithId, position)
@@ -39,6 +40,36 @@ export const slideAdded = (slide, position) => {
   }
 }
 
+export const editSlide = ({ slide, position }) => {
+  const slides = JSON.parse(localStorage.getItem('slides'))
+  const index = slides.findIndex(item => item.id === slide.id)
+  if (index > -1) {
+    store.dispatch(updateSlideContent(slide, index))
+    index !== position && moveSlide(slide, position)
+  }
+}
+
+const updateSlideContent = (slide, position) => {
+  const slides = JSON.parse(localStorage.getItem('slides'))
+  slides[position] = slide
+  localStorage.setItem('slides', JSON.stringify(slides))
+  return(slideContentUpdated(slide, position))
+}
+
+const slideContentUpdated = (slide, position) => {
+  return {
+    type: types.SLIDE_CONTENT_UPDATED,
+    payload: {
+      slide,
+      position
+    }
+  }
+}
+
+const moveSlide = (slide, to) => {
+  store.dispatch(deleteSlide(slide.id))
+  store.dispatch(addSlide({ slide, position: to }))
+}
 
 export const deleteSlide = (slideId) => {
   let existingSlides = JSON.parse(localStorage.getItem('slides'))
@@ -48,7 +79,7 @@ export const deleteSlide = (slideId) => {
   return slideDeleted(slideId)
 }
 
-export const slideDeleted = (slideId) => {
+const slideDeleted = (slideId) => {
   return {
     type: types.SLIDE_DELETED,
     slideId

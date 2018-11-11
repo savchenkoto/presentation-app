@@ -1,7 +1,7 @@
 import React from 'react'
 import { modals} from './Modals'
 import DeleteConfirmationModal from './DeleteConfirmationModal'
-import AddSlideModal from './AddSlideModal'
+import SlideFormModal from './SlideFormModal'
 import { connect } from 'react-redux'
 
 const ModalsSwitcher = ({ activeModal }) => {
@@ -9,8 +9,8 @@ const ModalsSwitcher = ({ activeModal }) => {
     case modals.DELETE_CONFIRMATION: {
       return <DeleteConfirmationModal/>
     }
-    case modals.ADD_NEW_SLIDE: {
-      return <AddSlideModal/>
+    case modals.SLIDE_FORM: {
+      return <SlideFormModal/>
     }
     default: {
       return <div className='modal-background hidden'/>

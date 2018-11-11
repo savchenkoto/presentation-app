@@ -17,7 +17,7 @@ const AddSlideButton = ({ openAddSlideModal }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  openAddSlideModal: () => dispatch(changeActiveModalTo(modals.ADD_NEW_SLIDE))
+  openAddSlideModal: () => dispatch(changeActiveModalTo(modals.SLIDE_FORM))
 })
 
 export default connect(null, mapDispatchToProps)(AddSlideButton)

@@ -12,11 +12,10 @@
 
 .modal-window {
     background-color: lightgray;
-    margin: 15% auto;
+    margin: 10% auto;
     border: 2px solid darkgrey;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
     border-radius: 8px;
-    /*width: 20%;*/
 }
 
 .modal-window .section {
@@ -32,11 +31,11 @@
     font-size: 24px;
 }
 
-.modal-window > footer {
+.modal-window footer {
     border-top: 1px solid darkgrey;
     text-align: right;
 }
 
-.modal-window > footer > button {
+.modal-window footer > button {
     margin-left: 5px;
 }

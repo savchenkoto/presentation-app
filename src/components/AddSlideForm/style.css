@@ -1,0 +1,58 @@
+.add-slide-form .grid {
+    display: grid;
+    padding: 10px;
+    column-gap: 5px;
+    row-gap: 8px;
+    grid-template-columns: 1fr 8fr;
+    grid-auto-rows: min-content;
+}
+
+.add-slide-form .form-input.position-grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-auto-rows: min-content;
+}
+
+.add-slide-form .form-input.text-area {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.add-slide-form .form-input > input {
+    border: 1px solid darkgrey;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+/* position */
+.add-slide-form .form-input > input[name=position] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-slide-form .form-input > .position-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #888888;
+    margin: 0 2px 0 0;
+}
+
+/* header */
+.add-slide-form .form-input > input[name=header] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* text */
+.add-slide-form .form-input > textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    border-radius: 3px;
+    padding: 5px;
+    width: 100%;
+    min-height: 200px;
+    box-sizing: border-box;
+    height: min-content;
+    margin-bottom: 0;
+    resize: none;
+}

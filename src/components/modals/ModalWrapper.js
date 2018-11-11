@@ -12,7 +12,9 @@ const ModalWrapper = ({ width, title, onBackgroundClick, children }) => {
         <header className='section'>
           <span>{title}</span>
         </header>
-        {children}
+        <div className='modal-body'>
+          {children}
+        </div>
       </div>
     </div>
   )

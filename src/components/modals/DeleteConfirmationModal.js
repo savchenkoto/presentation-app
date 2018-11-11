@@ -2,28 +2,28 @@ import React from 'react'
 import ModalWrapper from './ModalWrapper'
 import './style.css'
 
-function DeleteConfirmation ({ onConfirm, closeModal }) {
+function DeleteConfirmationModal ({ onConfirm, exit }) {
 
   const handleConfirm = () => {
     onConfirm()
-    closeModal()
+    exit()
   }
 
   return (
     <ModalWrapper
       width='20%'
       title='Confirm delete'
-      onBackgroundClick={closeModal}
+      onBackgroundClick={exit}
     >
-      <div className='section modal-body'>
+      <div className='section'>
         <p>Are you sure you want to delete it?</p>
       </div>
       <footer className='section'>
         <button onClick={handleConfirm}>Confirm</button>
-        <button onClick={closeModal}>Dismiss</button>
+        <button onClick={exit}>Dismiss</button>
       </footer>
     </ModalWrapper>
   )
 }
 
-export default DeleteConfirmation
+export default DeleteConfirmationModal

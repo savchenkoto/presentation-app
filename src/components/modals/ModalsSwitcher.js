@@ -1,29 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { modals} from './Modals'
 import DeleteConfirmationModal from './DeleteConfirmationModal'
-import { deleteSlide, addSlide } from '../../actions/slides'
-import { changeActiveModalTo } from '../../actions/modals'
 import AddSlideModal from './AddSlideModal'
+import { connect } from 'react-redux'
 
-const ModalsSwitcher = ({ activeModal, deleteSlide, changeActiveModal, addSlide, slidesCount }) => {
+const ModalsSwitcher = ({ activeModal }) => {
   switch (activeModal.modal) {
     case modals.DELETE_CONFIRMATION: {
-      return (
-        <DeleteConfirmationModal
-          onConfirm={() => deleteSlide(activeModal.data.slide.id)}
-          exit={() => changeActiveModal(null)}
-        />
-      )
+      return <DeleteConfirmationModal/>
     }
     case modals.ADD_NEW_SLIDE: {
-      return (
-        <AddSlideModal
-          slidesCount={slidesCount}
-          addSlide={addSlide}
-          exit={() => changeActiveModal(null)}
-        />
-      )
+      return <AddSlideModal/>
     }
     default: {
       return <div className='modal-background hidden'/>
@@ -32,14 +19,7 @@ const ModalsSwitcher = ({ activeModal, deleteSlide, changeActiveModal, addSlide,
 }
 
 const mapStateToProps = (state) => ({
-  activeModal: state.activeModal,
-  slidesCount: state.slides.length
+  activeModal: state.activeModal
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteSlide: (slideId) => dispatch(deleteSlide(slideId)),
-  changeActiveModal: (modal) => dispatch(changeActiveModalTo(modal, null)),
-  addSlide: ({ slide, position }) => dispatch(addSlide({ slide, position }))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModalsSwitcher)
+export default connect(mapStateToProps)(ModalsSwitcher)

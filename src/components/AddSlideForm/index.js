@@ -15,6 +15,7 @@ function Index ({ slidesCount, addSlide, exit  }) {
       header: headerInput.value,
       text: textInput.value
     }
+    console.log({slide})
     addSlide({ slide, position: positionInput.value })
     clearInputs()
     exit()

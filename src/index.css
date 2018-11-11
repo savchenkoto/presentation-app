@@ -36,7 +36,7 @@ input {
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 2vh;
-    grid-auto-rows: minmax(min-content, max-content);
+    grid-auto-rows: 25vh;
     overflow-y: scroll;
     font-size: 0.35em;
 }
@@ -60,8 +60,13 @@ label {
     margin: 1em 0;
 }
 
-/* slide decoration */
+/* slide-carousel */
+div.carousel-grid {
+    display: grid;
 
+}
+
+/* slide decoration */
 div.header {
     text-align: center;
     font-size: 1em;
@@ -70,6 +75,7 @@ div.header {
 div.description {
     word-break: break-word;
     font-size: 1em;
+    white-space: pre-line;
 }
 
 div.slide {
@@ -78,10 +84,10 @@ div.slide {
     border-radius: 3px;
     padding: 2em;
     font-size: 1em;
-    min-height: 22vh;
-    height: 91%;
+    min-height: 100px;
+    overflow: hidden;
 }
 
-.slide-wrapper {
-    max-height: 40vh;
+div.slide-control {
+    display: grid;
 }

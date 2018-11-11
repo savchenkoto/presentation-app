@@ -26,13 +26,12 @@ class SlidesList extends Component {
     return (
       <div className='slides-grid box'>
         {slides.map(item => (
-          <div key={item.id} className='slide-wrapper'>
-            <SlideWithControlIcons
-              slide={item}
-              selectSlide={this.handleClick}
-              handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
-            />
-          </div>
+          <SlideWithControlIcons
+            key={item.id}
+            slide={item}
+            selectSlide={this.handleClick}
+            handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
+          />
         ))}
       </div>
     )

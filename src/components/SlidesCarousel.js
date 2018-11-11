@@ -7,7 +7,7 @@ const SlidesCarousel = ({ slides, activeSlideId }) => {
     slides.find(slide => slide.id === activeSlideId) :
     slides.length ? slides[0] : ''
   return (
-    <div className='box'>
+    <div className='box carousel-grid'>
       <Slide slide={activeSlide}/>
     </div>
   )

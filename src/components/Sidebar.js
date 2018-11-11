@@ -4,7 +4,7 @@ import AddSlideButton from './AddSlideButton'
 
 const Sidebar = () => {
   return (
-    <div className='sidebar sidebar-wrapper'>
+    <div className='sidebar sidebar-grid'>
       <AddSlideButton/>
       <SlidesList/>
     </div>

@@ -24,7 +24,7 @@ class SlidesList extends Component {
     const { slides, changeActiveModal } = this.props
     const SlideWithControlIcons = addControlIcons(Slide)
     return (
-      <div className='slides-wrapper box'>
+      <div className='slides-grid box'>
         {slides.map(item => (
           <div key={item.id} className='slide-wrapper'>
             <SlideWithControlIcons

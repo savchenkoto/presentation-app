@@ -1,8 +1,17 @@
 body {
     margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-.wrapper {
+button {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+input {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.grid {
     display: grid;
     padding: 8px;
     grid-template-columns: 3fr 11fr;
@@ -17,13 +26,13 @@ body {
     box-shadow: 0 0 5px black;
 }
 
-.sidebar-wrapper {
+.sidebar-grid {
     display: grid;
     grid-template-rows: 1fr 15fr;
     grid-row-gap: 1em;
 }
 
-.slides-wrapper {
+.slides-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 2vh;
@@ -32,7 +41,7 @@ body {
     font-size: 0.35em;
 }
 
-.slides-wrapper div.slide {
+.slides-grid div.slide {
     border: 1px solid black;
     border-radius: 3px;
 }

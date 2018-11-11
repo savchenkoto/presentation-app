@@ -5,7 +5,7 @@ import ModalsSwitcher from './modals/ModalsSwitcher'
 
 const Presentation = () => {
   return (
-    <div className='wrapper'>
+    <div className='grid'>
       <Sidebar/>
       <SlidesCarousel/>
       <ModalsSwitcher/>

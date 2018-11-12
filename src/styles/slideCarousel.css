@@ -1,0 +1,63 @@
+div.carousel-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+div.carousel-grid > .navigate.left {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 0;
+    align-content: center;
+}
+
+div.carousel-grid > .navigate.left span {
+    margin-left: 10px;
+}
+
+div.carousel-grid > .navigate.left:hover {
+    background: linear-gradient(90deg, rgba(185, 185, 178, 0.51), rgba(176, 176, 176, 0));
+}
+
+div.carousel-grid > .navigate > span {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+    font-size: 40px;
+    color: darkgrey;
+    display: none;
+}
+
+div.carousel-grid > .navigate.left:hover span {
+    display: block;
+}
+
+div.carousel-grid > .navigate.right {
+    display: grid;
+    grid-row: 1;
+    grid-column: 3;
+    align-content: center;
+    text-align: right;
+}
+
+div.carousel-grid > .navigate.right span {
+    margin-right: 10px;
+}
+
+div.carousel-grid > .navigate.right:hover {
+    background: linear-gradient(-90deg, rgba(185, 185, 178, 0.51), rgba(176, 176, 176, 0));
+}
+
+div.carousel-grid > .navigate.right:hover span {
+    display: block;
+}
+
+div.carousel-grid > .content {
+    display: grid;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}

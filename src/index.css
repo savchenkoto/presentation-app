@@ -56,11 +56,6 @@ label {
     margin: 1em 0;
 }
 
-/* slide-carousel */
-div.carousel-grid {
-    display: grid;
-}
-
 /* slide decoration */
 div.header {
     text-align: center;

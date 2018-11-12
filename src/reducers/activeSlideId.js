@@ -6,6 +6,9 @@ export default function activeSlideId (state = 0, action) {
     case types.SLIDE_SELECTED: {
       return action.slideId
     }
+    case types.SLIDE_DELETED: {
+      return 0
+    }
     default: {
       return state
     }

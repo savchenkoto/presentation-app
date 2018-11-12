@@ -9,9 +9,26 @@ import SlideIcon from './SlideIcon'
 class SlidesList extends Component {
 
   componentDidMount () {
-    const { fetchSlides, selectSlide, slides, activeSlideId } = this.props
+    const { fetchSlides } = this.props
     fetchSlides()
-    slides.length && slides[0].id !== activeSlideId && selectSlide(slides[0].id)
+  }
+
+  componentDidUpdate (prevProps) {
+    const { slides, activeSlideId, selectSlide } = this.props;
+    if (!activeSlideId && slides.length) {
+      const nextActiveSlideIndex = this.getNextActiveSlideIndex(prevProps.slides, prevProps.activeSlideId)
+      selectSlide(slides[nextActiveSlideIndex].id)
+    }
+  }
+
+  getNextActiveSlideIndex = (prevSlides, prevActiveSlideId) => {
+    const { slides } = this.props
+    const prevActiveSlideIndex = prevSlides.findIndex(item => item.id === prevActiveSlideId)
+    return prevActiveSlideIndex > -1 ?
+      prevActiveSlideIndex < slides.length ?
+        prevActiveSlideIndex :
+        prevActiveSlideIndex - 1 :
+      0
   }
 
   handleClick = (id) => {
@@ -21,7 +38,6 @@ class SlidesList extends Component {
 
   render () {
     const { slides, changeActiveModal, activeSlideId } = this.props
-    console.log('SlideList: ', slides)
     return (
       <div className='slides-grid box'>
         {slides.map((item, index) => (

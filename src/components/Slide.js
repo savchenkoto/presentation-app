@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Slide = ({ slide }) => {
-  console.log('in Slide: ', {slide})
+  // console.log('in Slide: ', {slide})
   return (
     <div className='slide'>
       <div className='header'>

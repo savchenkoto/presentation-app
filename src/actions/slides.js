@@ -1,5 +1,4 @@
 import * as types from './types'
-import { store } from '../index'
 
 
 export const fetchSlides = () => {
@@ -40,12 +39,12 @@ export const slideAdded = (slide, position) => {
   }
 }
 
-export const editSlide = ({ slide, position }) => {
+export const editSlide = (dispatch, { slide, position }) => {
   const slides = JSON.parse(localStorage.getItem('slides'))
   const index = slides.findIndex(item => item.id === slide.id)
   if (index > -1) {
-    store.dispatch(updateSlideContent(slide, index))
-    index !== position && moveSlide(slide, position)
+    dispatch(updateSlideContent(slide, index))
+    index !== position && moveSlide(dispatch, slide, position)
   }
 }
 
@@ -66,9 +65,9 @@ const slideContentUpdated = (slide, position) => {
   }
 }
 
-const moveSlide = (slide, to) => {
-  store.dispatch(deleteSlide(slide.id))
-  store.dispatch(addSlide({ slide, position: to }))
+const moveSlide = (dispatch, slide, to) => {
+  dispatch(deleteSlide(slide.id))
+  dispatch(addSlide({ slide, position: to }))
 }
 
 export const deleteSlide = (slideId) => {

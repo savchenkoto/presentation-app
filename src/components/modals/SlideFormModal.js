@@ -39,7 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   addSlide: ({ slide, position }) => dispatch(addSlide({ slide, position })),
-  editSlide: ({ slide, position }) => editSlide({ slide, position }),
+  editSlide: ({ slide, position }) => editSlide(dispatch, { slide, position }),
   exit: () => dispatch(changeActiveModalTo(null))
 })
 

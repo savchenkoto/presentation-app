@@ -10,20 +10,18 @@ class SlideIcon extends Component {
 
   render() {
     const { hovered } = this.state
-    const { handleDelete, handleEdit, selectSlide, slide, index } = this.props
-    console.log('in SlideIcon: ', slide)
+    const { handleDelete, handleEdit, selectSlide, slide, index, isActive } = this.props
     return (
       <div
-        className="slide-icon-grid"
+        className={`slide-icon-grid ${isActive ? 'active' : ''}`}
+        onMouseOver={() => hovered || this.setState({ hovered: true })}
+        onMouseLeave={() => hovered && this.setState({ hovered: false })}
         onClick={selectSlide}
       >
         <div className='slide-info'>
           <span>{index + 1}</span>
         </div>
-        <div className='controls-wrapper'
-             onMouseOver={() => hovered || this.setState({ hovered: true })}
-             onMouseLeave={() => hovered && this.setState({ hovered: false })}
-        >
+        <div className={`controls-wrapper ${hovered ? 'hovered' : ''}`}>
           <div className={`controls ${hovered ? 'hovered' : ''}`}>
             <button className='control' onClick={handleDelete}>
               Delete

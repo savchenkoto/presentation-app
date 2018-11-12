@@ -20,7 +20,7 @@ class SlidesList extends Component {
   }
 
   render () {
-    const { slides, changeActiveModal } = this.props
+    const { slides, changeActiveModal, activeSlideId } = this.props
     console.log('SlideList: ', slides)
     return (
       <div className='slides-grid box'>
@@ -29,6 +29,7 @@ class SlidesList extends Component {
             key={item.id}
             index={index}
             slide={item}
+            isActive={activeSlideId === item.id}
             selectSlide={() => this.handleClick(item.id)}
             handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
             handleEdit={() => changeActiveModal(modals.SLIDE_FORM, {slide: item})}

@@ -42,11 +42,6 @@ input {
     font-size: 0.35em;
 }
 
-.slides-grid div.slide {
-    border: 1px solid black;
-    border-radius: 3px;
-}
-
 .add-slide {
     padding: 5px;
 }

@@ -5,6 +5,17 @@ div.carousel-grid {
     grid-template-rows: 1fr;
 }
 
+div.carousel-grid > .navigate svg  {
+    fill: #a3a2a7;
+    width: 40px;
+    height: 40px;
+    display: none;
+}
+
+div.carousel-grid > .navigate:hover svg {
+    display: block;
+}
+
 div.carousel-grid > .navigate.left {
     display: grid;
     grid-column: 1;
@@ -13,7 +24,7 @@ div.carousel-grid > .navigate.left {
     align-content: center;
 }
 
-div.carousel-grid > .navigate.left span {
+div.carousel-grid > .navigate.left svg {
     margin-left: 10px;
 }
 
@@ -21,30 +32,20 @@ div.carousel-grid > .navigate.left:hover {
     background: linear-gradient(90deg, rgba(185, 185, 178, 0.51), rgba(176, 176, 176, 0));
 }
 
-div.carousel-grid > .navigate > span {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none;
-    font-size: 40px;
-    color: darkgrey;
-    display: none;
-}
-
-div.carousel-grid > .navigate.left:hover span {
-    display: block;
-}
-
 div.carousel-grid > .navigate.right {
     display: grid;
     grid-row: 1;
     grid-column: 3;
     align-content: center;
-    text-align: right;
 }
 
-div.carousel-grid > .navigate.right span {
+div.carousel-grid > .navigate.right svg {
     margin-right: 10px;
+    float: right;
+}
+
+div.carousel-grid > .navigate > .icon-wrapper {
+
 }
 
 div.carousel-grid > .navigate.right:hover {

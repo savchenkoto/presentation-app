@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Slide from './Slide'
 import '../styles/slideIcon.css'
+import { icons } from '../svg/icons'
+import Icon from './Icon'
 
 class SlideIcon extends Component {
 
@@ -23,12 +25,18 @@ class SlideIcon extends Component {
         </div>
         <div className={`controls-wrapper ${hovered ? 'hovered' : ''}`}>
           <div className={`controls ${hovered ? 'hovered' : ''}`}>
-            <button className='control' onClick={handleDelete}>
-              Delete
-            </button>
-            <button className='control' onClick={handleEdit}>
-              Edit
-            </button>
+            <Icon
+              className='control'
+              icon={icons.TRASH}
+              viewBox='0 0 1152 1024'
+              onClick={handleDelete}
+            />
+            <Icon
+              className='control'
+              icon={icons.EDIT}
+              viewBox='0 0 1152 1024'
+              onClick={handleEdit}
+            />
           </div>
           <Slide slide={slide}/>
         </div>

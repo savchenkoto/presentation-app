@@ -21,24 +21,29 @@ div.controls-wrapper {
 
 div.controls-wrapper.hovered {
     box-shadow: 0 0 3px #5e5e5e;
-
     border-radius: 3px;
 }
 
 div.controls-wrapper > .controls {
     position: absolute;
     display: none;
-    top: 5px;
-    right: 5px;
+    top: 7px;
+    right: 7px;
 }
 
 div.controls-wrapper > .controls.hovered {
     display: inline-grid;
 }
 
-button.control {
-    font-size: small;
-    margin-bottom: 5px;
+div.controls-wrapper .controls .control {
+    width: 20px;
+    margin-bottom: 4px;
+    height: 20px;
+    fill: darkgrey;
+}
+
+div.controls-wrapper .controls .control:hover {
+    fill: gray;
 }
 
 

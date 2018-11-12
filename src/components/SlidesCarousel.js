@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Slide from './Slide'
 import '../styles/slideCarousel.css'
 import { selectSlide } from '../actions/slides'
+import Icon from './Icon'
+import { icons } from '../svg/icons'
 
 const SlidesCarousel = ({ slides, activeSlideId, selectSlide }) => {
 
@@ -23,7 +25,9 @@ const SlidesCarousel = ({ slides, activeSlideId, selectSlide }) => {
         className='navigate left'
         onClick={() => prevSlide(currentIndex)}
       >
-        <span>{`<`}</span>
+        <div className='icon-wrapper'>
+          <Icon icon={icons.LEFT_ARROW} viewBox='0 0 640 1024'/>
+        </div>
       </div>
       <div className='content'>
         <Slide slide={activeSlide}/>
@@ -32,7 +36,9 @@ const SlidesCarousel = ({ slides, activeSlideId, selectSlide }) => {
         className='navigate right'
         onClick={() => nextSlide(currentIndex)}
       >
-        <span>{`>`}</span>
+        <div className='icon-wrapper'>
+          <Icon icon={icons.RIGHT_ARROW} viewBox='0 0 640 1024'/>
+        </div>
       </div>
     </div>
   )

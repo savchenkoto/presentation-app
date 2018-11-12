@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Slide from './slide/index'
+import Slide from './Slide'
 
 const SlidesCarousel = ({ slides, activeSlideId }) => {
   const activeSlide = activeSlideId ?

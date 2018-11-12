@@ -1,0 +1,38 @@
+div.slide-icon-grid {
+    display: grid;
+    padding: 5px;
+    grid-template-columns: 1fr 7fr;
+}
+
+div.slide-icon-grid > .slide-info {
+    font-size: 16px;
+    text-align: center;
+}
+
+div.controls-wrapper {
+    position: relative;
+    display: grid;
+}
+
+div.controls-wrapper > .controls {
+    position: absolute;
+    display: none;
+    top: 5px;
+    right: 5px;
+}
+
+div.controls-wrapper > .controls.hovered {
+    display: inline-grid;
+}
+
+button.control {
+    font-size: small;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+

@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchSlides, selectSlide } from '../actions/slides'
 import { changeActiveModalTo } from '../actions/modals'
-import Slide from './slide/index'
-import addControlIcons from './hoc/addControlIcons'
 import { modals } from './modals/Modals'
+import SlideIcon from './SlideIcon'
 
 
 class SlidesList extends Component {
@@ -22,14 +21,15 @@ class SlidesList extends Component {
 
   render () {
     const { slides, changeActiveModal } = this.props
-    const SlideWithControlIcons = addControlIcons(Slide)
+    console.log('SlideList: ', slides)
     return (
       <div className='slides-grid box'>
-        {slides.map(item => (
-          <SlideWithControlIcons
+        {slides.map((item, index) => (
+          <SlideIcon
             key={item.id}
+            index={index}
             slide={item}
-            selectSlide={this.handleClick}
+            selectSlide={() => this.handleClick(item.id)}
             handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
             handleEdit={() => changeActiveModal(modals.SLIDE_FORM, {slide: item})}
           />

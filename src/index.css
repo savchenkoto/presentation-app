@@ -34,8 +34,9 @@ input {
 
 .slides-grid {
     display: grid;
+    padding: 5px;
     grid-template-columns: 1fr;
-    grid-row-gap: 2vh;
+    grid-row-gap: 2.5px;
     grid-auto-rows: 25vh;
     overflow-y: scroll;
     font-size: 0.35em;
@@ -63,7 +64,6 @@ label {
 /* slide-carousel */
 div.carousel-grid {
     display: grid;
-
 }
 
 /* slide decoration */
@@ -80,14 +80,10 @@ div.description {
 
 div.slide {
     background-color: white;
-    border: 2px solid darkgrey;
+    border: 1px solid darkgrey;
     border-radius: 3px;
     padding: 2em;
     font-size: 1em;
-    min-height: 100px;
     overflow: hidden;
 }
 
-div.slide-control {
-    display: grid;
-}

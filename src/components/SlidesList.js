@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchSlides, selectSlide } from '../actions/slides'
+import { dropSlide, grabSlide, moveGrabbedSlideTo } from '../actions/grabbedSlide'
 import { changeActiveModalTo } from '../actions/modals'
 import { modals } from './modals/Modals'
 import SlideIcon from './SlideIcon'
@@ -37,7 +38,7 @@ class SlidesList extends Component {
   }
 
   render () {
-    const { slides, changeActiveModal, activeSlideId } = this.props
+    const { slides, changeActiveModal, activeSlideId, grabSlide, moveGrabbedSlide, dropSlide, grabbedSlide } = this.props
     return (
       <div className='slides-grid box'>
         {slides.map((item, index) => (
@@ -47,8 +48,12 @@ class SlidesList extends Component {
             slide={item}
             isActive={activeSlideId === item.id}
             selectSlide={() => this.handleClick(item.id)}
-            handleDelete={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
-            handleEdit={() => changeActiveModal(modals.SLIDE_FORM, {slide: item})}
+            deleteSlide={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
+            editSlide={() => changeActiveModal(modals.SLIDE_FORM, {slide: item})}
+            grabSlide={grabSlide}
+            moveGrabbedSlide={moveGrabbedSlide}
+            dropSlide={dropSlide}
+            grabbedSlide={grabbedSlide}
           />
         ))}
       </div>
@@ -58,13 +63,17 @@ class SlidesList extends Component {
 
 const mapStateToProps = (state) => ({
   slides: state.slides,
-  activeSlideId: state.activeSlideId
+  activeSlideId: state.activeSlideId,
+  grabbedSlide: state.grabbedSlide
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlides: () => dispatch(fetchSlides()),
   selectSlide: (slideId) => dispatch(selectSlide(slideId)),
-  changeActiveModal: (modal, props) => dispatch(changeActiveModalTo(modal, props))
+  changeActiveModal: (modal, props) => dispatch(changeActiveModalTo(modal, props)),
+  grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),
+  moveGrabbedSlide: (position) => dispatch(moveGrabbedSlideTo(position)),
+  dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesList)

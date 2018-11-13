@@ -65,7 +65,7 @@ const slideContentUpdated = (slide, position) => {
   }
 }
 
-const moveSlide = (dispatch, slide, to) => {
+export const moveSlide = (dispatch, slide, to) => {
   dispatch(deleteSlide(slide.id))
   dispatch(addSlide({ slide, position: to }))
 }

@@ -1,23 +1,42 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const ModalWrapper = ({ width, title, onBackgroundClick, children }) => {
+class ModalWrapper extends Component {
 
-  const handleBackgroundClick = (e) => {
+  componentDidMount () {
+    this.self.focus()
+
+  }
+
+  handleBackgroundClick = (e) => {
+    const { onBackgroundClick } = this.props
     e.target === e.currentTarget && onBackgroundClick()
   }
 
-  return (
-    <div className='modal-background' onClick={handleBackgroundClick}>
-      <div className='modal-window' style={{width: width}}>
-        <header className='section'>
-          <span>{title}</span>
-        </header>
-        <div className='modal-body'>
-          {children}
+  handleKeyPress = (e) => {
+    const { onEscapeClick } = this.props
+    e.key === 'Escape' && onEscapeClick()
+  }
+
+  render () {
+    const { width, title, children } = this.props
+    return (
+      <div className='modal-background'
+           onClick={this.handleBackgroundClick}
+           tabIndex={0}
+           onKeyDown={this.handleKeyPress}
+           ref={node => this.self = node}
+      >
+        <div className='modal-window' style={{ width: width }}>
+          <header className='section'>
+            <span>{title}</span>
+          </header>
+          <div className='modal-body'>
+            {children}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default ModalWrapper

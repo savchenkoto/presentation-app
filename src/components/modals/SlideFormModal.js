@@ -12,6 +12,7 @@ const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, editSlide, exit })
       width='40%'
       title={`${slideToEdit ? 'Edit slide' : 'Add new slide'}`}
       onBackgroundClick={exit}
+      onEscapeClick={exit}
     >
       <AddSlideForm
         slidesCount={slidesCount}

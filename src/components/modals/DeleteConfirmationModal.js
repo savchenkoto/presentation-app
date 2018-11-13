@@ -17,6 +17,7 @@ function DeleteConfirmationModal ({ slideIdToDelete, deleteSlide, exit }) {
       width='20%'
       title='Confirm delete'
       onBackgroundClick={exit}
+      onEscapeClick={exit}
     >
       <div className='section'>
         <p>Are you sure you want to delete it?</p>

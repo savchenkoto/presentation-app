@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { changeActiveModalTo } from '../actions/modals'
-import { modals } from './modals/Modals'
+import { modals } from './modals/modals'
 
 const AddSlideButton = ({ openAddSlideModal }) => {
 

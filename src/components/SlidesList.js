@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchSlides, selectSlide } from '../actions/slides'
 import { dropSlide, grabSlide, moveGrabbedSlideTo } from '../actions/grabbedSlide'
 import { changeActiveModalTo } from '../actions/modals'
-import { modals } from './modals/Modals'
+import { modals } from './modals/modals'
 import SlideIcon from './SlideIcon'
 
 
@@ -48,8 +48,14 @@ class SlidesList extends Component {
             slide={item}
             isActive={activeSlideId === item.id}
             selectSlide={() => this.handleClick(item.id)}
-            deleteSlide={() => changeActiveModal(modals.DELETE_CONFIRMATION, {slide: item})}
-            editSlide={() => changeActiveModal(modals.SLIDE_FORM, {slide: item})}
+            deleteSlide={() => changeActiveModal({
+              modal: modals.DELETE_CONFIRMATION,
+              props: {slide: item}
+            })}
+            editSlide={() => changeActiveModal({
+              modal: modals.SLIDE_FORM,
+              props: {slide: item}
+            })}
             grabSlide={grabSlide}
             moveGrabbedSlide={moveGrabbedSlide}
             dropSlide={dropSlide}
@@ -70,7 +76,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchSlides: () => dispatch(fetchSlides()),
   selectSlide: (slideId) => dispatch(selectSlide(slideId)),
-  changeActiveModal: (modal, props) => dispatch(changeActiveModalTo(modal, props)),
+  changeActiveModal: ({ modal, props }) => dispatch(changeActiveModalTo(modal, props)),
   grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),
   moveGrabbedSlide: (position) => dispatch(moveGrabbedSlideTo(position)),
   dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to))

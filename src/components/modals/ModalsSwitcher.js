@@ -1,11 +1,11 @@
 import React from 'react'
-import { modals} from './Modals'
+import { modals } from './modals'
 import DeleteConfirmationModal from './DeleteConfirmationModal'
 import SlideFormModal from './SlideFormModal'
 import { connect } from 'react-redux'
 
 const ModalsSwitcher = ({ activeModal }) => {
-  switch (activeModal.modal) {
+  switch (activeModal && activeModal.modal) {
     case modals.DELETE_CONFIRMATION: {
       return <DeleteConfirmationModal/>
     }

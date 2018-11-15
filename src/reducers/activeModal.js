@@ -1,11 +1,6 @@
 import * as types from '../actions/types'
 
-const getInitialState = () => ({
-  modal: null,
-  data: null
-})
-
-export default function activeModal (state = getInitialState(), action) {
+export default function activeModal (state = null, action) {
   switch (action.type) {
     case types.ACTIVE_MODAL_CHANGED: {
       return action.payload

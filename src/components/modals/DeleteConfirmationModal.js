@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ModalWrapper from './ModalWrapper'
 import { deleteSlide } from '../../actions/slides'
-import { changeActiveModalTo } from '../../actions/modals'
+import { closeActiveModal } from '../../actions/modals'
 import './style.css'
 
 function DeleteConfirmationModal ({ slideIdToDelete, deleteSlide, exit }) {
@@ -36,7 +36,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteSlide: (slideId) => dispatch(deleteSlide(slideId)),
-  exit: () => dispatch(changeActiveModalTo(null))
+  exit: () => dispatch(closeActiveModal())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteConfirmationModal)

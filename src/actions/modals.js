@@ -1,6 +1,6 @@
 import * as types from './types'
 
-export const changeActiveModalTo = (modal, props = null) => {
+export const changeActiveModalTo = (modal = null, props = null) => {
   return {
     type: types.ACTIVE_MODAL_CHANGED,
     payload: {
@@ -10,4 +10,8 @@ export const changeActiveModalTo = (modal, props = null) => {
       }
     }
   }
+}
+
+export const closeActiveModal = () => {
+  return changeActiveModalTo()
 }

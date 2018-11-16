@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 class ModalWrapper extends Component {
 
+  self = React.createRef()
+
   componentDidMount () {
     this.self.focus()
 

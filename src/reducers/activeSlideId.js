@@ -3,7 +3,7 @@ import * as types from '../actions/types'
 
 export default function activeSlideId (state = 0, action) {
   switch (action.type) {
-    case types.SLIDE_SELECTED: {
+    case types.CHANGE_ACTIVE_SLIDE: {
       return action.slideId
     }
     case types.SLIDE_DELETED: {

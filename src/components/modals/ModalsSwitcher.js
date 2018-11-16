@@ -13,7 +13,7 @@ const ModalsSwitcher = ({ activeModal }) => {
       return <SlideFormModal/>
     }
     default: {
-      return <div className='modal-background hidden'/>
+      return <div hidden={true}/>
     }
   }
 }

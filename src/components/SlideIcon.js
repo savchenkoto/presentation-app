@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Slide from './Slide'
 import '../styles/slideIcon.css'
-import { icons } from '../svg/icons'
-import Icon from './Icon'
+import { componentsWithContextMenu } from './contextMenu/supportedComponents'
 
 class SlideIcon extends Component {
 
@@ -25,38 +24,36 @@ class SlideIcon extends Component {
     dropSlide(grabbedSlide.slide, grabbedSlide.position)
   }
 
+  handleRightClick = (e) => {
+    e.preventDefault()
+    const { slide, changeActiveContextMenu, changeActiveSlide } = this.props
+    changeActiveSlide(slide)
+    changeActiveContextMenu({
+      component: componentsWithContextMenu.SLIDE_ICON,
+      coords: { x: e.clientX, y: e.clientY },
+      props: { slide: { ...slide } }
+    })
+  }
+
   render() {
-    const { hovered, dragging } = this.state
-    const { deleteSlide, editSlide, selectSlide, slide, index, isActive } = this.props
+    const { dragging } = this.state
+    const { changeActiveSlide, slide, index, isActive } = this.props
     return (
       <div
-        onDragEnter={this.onDragEnter}
         className={`slide-icon-grid ${isActive ? 'active' : ''} ${dragging ? 'dragging' : ''}`}
         onMouseEnter={() => this.setState({ hovered: true })}
         onMouseLeave={() => this.setState({ hovered: false })}
-        onClick={selectSlide}
+        onClick={changeActiveSlide}
+        onContextMenu={this.handleRightClick}
         onDragStart={this.handleSlideGrab}
+        onDragEnter={this.onDragEnter}
         onDragEnd={this.handleDrop}
         draggable={true}
       >
         <div className='slide-info'>
           <span>{index + 1}</span>
         </div>
-        <div className='controls-wrapper'>
-          <div className={`controls ${hovered ? 'hovered' : ''}`}>
-            <Icon
-              className='control'
-              icon={icons.TRASH}
-              viewBox='0 0 1152 1024'
-              onClick={deleteSlide}
-            />
-            <Icon
-              className='control'
-              icon={icons.EDIT}
-              viewBox='0 0 1152 1024'
-              onClick={editSlide}
-            />
-          </div>
+        <div className='slide-icon-wrapper'>
           <Slide slide={slide}/>
         </div>
       </div>

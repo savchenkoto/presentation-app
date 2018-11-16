@@ -6,10 +6,6 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-background.hidden {
-    display: none;
-}
-
 .modal-window {
     background-color: lightgray;
     margin: 10% auto;

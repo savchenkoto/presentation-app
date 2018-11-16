@@ -3,13 +3,7 @@
     padding: 10px;
     column-gap: 5px;
     row-gap: 8px;
-    grid-template-columns: 1fr 8fr;
-    grid-auto-rows: min-content;
-}
-
-.add-slide-form .form-input.position-grid {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr;
     grid-auto-rows: min-content;
 }
 
@@ -21,21 +15,8 @@
 
 .add-slide-form .form-input > input {
     border: 1px solid darkgrey;
-    padding: 3px;
+    padding: 5px;
     border-radius: 3px;
-}
-
-/* position */
-.add-slide-form .form-input > input[name=position] {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.add-slide-form .form-input > .position-label {
-    font-size: 18px;
-    font-weight: bold;
-    color: #888888;
-    margin: 0 2px 0 0;
 }
 
 /* header */

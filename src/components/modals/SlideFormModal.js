@@ -5,7 +5,7 @@ import { addSlide, editSlide } from '../../actions/slides'
 import { closeActiveModal } from '../../actions/modals'
 import { connect } from 'react-redux'
 
-const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, editSlide, exit }) => {
+const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, editSlide, exit, position }) => {
 
   return (
     <ModalWrapper
@@ -20,6 +20,7 @@ const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, editSlide, exit })
         addSlide={addSlide}
         editSlide={editSlide}
         exit={exit}
+        position={position}
       />
     </ModalWrapper>
   )
@@ -34,7 +35,8 @@ const mapStateToProps = (state) => {
         ...data.slide
       },
       position: state.slides.findIndex(item => item.id === data.slide.id) + 1
-    }
+    },
+    position: data.position
   }
 }
 

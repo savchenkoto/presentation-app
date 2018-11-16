@@ -85,9 +85,9 @@ const slideDeleted = (slideId) => {
   }
 }
 
-export const selectSlide = (slideId) => {
+export const changeActiveSlide = (slideId) => {
   return {
-    type: types.SLIDE_SELECTED,
+    type: types.CHANGE_ACTIVE_SLIDE,
     slideId
   }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import SlidesCarousel from './SlidesCarousel'
 import ModalsSwitcher from './modals/ModalsSwitcher'
+import ContextMenuSwitcher from './contextMenu/ContextMenuSwitcher'
 
 const Presentation = () => {
   return (
@@ -9,6 +10,7 @@ const Presentation = () => {
       <Sidebar/>
       <SlidesCarousel/>
       <ModalsSwitcher/>
+      <ContextMenuSwitcher/>
     </div>
   )
 }

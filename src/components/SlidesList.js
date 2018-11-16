@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchSlides, selectSlide } from '../actions/slides'
+import { fetchSlides, changeActiveSlide } from '../actions/slides'
 import { dropSlide, grabSlide, moveGrabbedSlideTo } from '../actions/grabbedSlide'
 import { changeActiveModalTo } from '../actions/modals'
 import { modals } from './modals/modals'
 import SlideIcon from './SlideIcon'
+import { changeActiveContextMenu } from '../actions/contextMenu'
 
 
 class SlidesList extends Component {
@@ -15,10 +16,10 @@ class SlidesList extends Component {
   }
 
   componentDidUpdate (prevProps) {
-    const { slides, activeSlideId, selectSlide } = this.props;
+    const { slides, activeSlideId, changeActiveSlide } = this.props;
     if (!activeSlideId && slides.length) {
       const nextActiveSlideIndex = this.getNextActiveSlideIndex(prevProps.slides, prevProps.activeSlideId)
-      selectSlide(slides[nextActiveSlideIndex].id)
+      changeActiveSlide(slides[nextActiveSlideIndex].id)
     }
   }
 
@@ -33,12 +34,23 @@ class SlidesList extends Component {
   }
 
   handleClick = (id) => {
-    const { selectSlide, activeSlideId } = this.props
-    activeSlideId !== id && selectSlide(id)
+    const { changeActiveSlide, activeSlideId } = this.props
+    activeSlideId !== id && changeActiveSlide(id)
   }
 
   render () {
-    const { slides, changeActiveModal, activeSlideId, grabSlide, moveGrabbedSlide, dropSlide, grabbedSlide } = this.props
+
+    const {
+      slides,
+      changeActiveModal,
+      activeSlideId,
+      grabSlide,
+      moveGrabbedSlide,
+      dropSlide,
+      grabbedSlide,
+      changeActiveContextMenu,
+    } = this.props
+
     return (
       <div className='slides-grid box'>
         {slides.map((item, index) => (
@@ -47,7 +59,7 @@ class SlidesList extends Component {
             index={index}
             slide={item}
             isActive={activeSlideId === item.id}
-            selectSlide={() => this.handleClick(item.id)}
+            changeActiveSlide={() => this.handleClick(item.id)}
             deleteSlide={() => changeActiveModal({
               modal: modals.DELETE_CONFIRMATION,
               props: {slide: item}
@@ -60,6 +72,7 @@ class SlidesList extends Component {
             moveGrabbedSlide={moveGrabbedSlide}
             dropSlide={dropSlide}
             grabbedSlide={grabbedSlide}
+            changeActiveContextMenu={changeActiveContextMenu}
           />
         ))}
       </div>
@@ -75,11 +88,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSlides: () => dispatch(fetchSlides()),
-  selectSlide: (slideId) => dispatch(selectSlide(slideId)),
+  changeActiveSlide: (slideId) => dispatch(changeActiveSlide(slideId)),
   changeActiveModal: ({ modal, props }) => dispatch(changeActiveModalTo(modal, props)),
   grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),
   moveGrabbedSlide: (position) => dispatch(moveGrabbedSlideTo(position)),
-  dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to))
+  dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to)),
+  changeActiveContextMenu: ({ component, coords, props }) => dispatch(changeActiveContextMenu(component, coords, props))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesList)

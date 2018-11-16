@@ -14,41 +14,14 @@ div.slide-icon-grid > .slide-info {
     text-align: center;
 }
 
-div.controls-wrapper {
-    position: relative;
+div.slide-icon-wrapper {
     display: grid;
+    border-radius: inherit;
 }
 
-div.controls-wrapper:hover {
+div.slide-icon-wrapper:hover {
     box-shadow: 0 0 3px #5e5e5e;
-    border-radius: 3px;
 }
-
-div.controls-wrapper > .controls {
-    position: absolute;
-    display: none;
-    top: 7px;
-    right: 7px;
-}
-
-div.controls-wrapper > .controls.hovered {
-    display: inline-grid;
-}
-
-div.controls-wrapper .controls .control {
-    width: 20px;
-    margin-bottom: 4px;
-    height: 20px;
-    fill: darkgrey;
-}
-
-div.controls-wrapper .controls .control:hover {
-    fill: gray;
-}
-
-
-
-
 
 
 

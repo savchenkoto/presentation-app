@@ -28,13 +28,7 @@ input {
 
 .sidebar-grid {
     display: grid;
-    grid-template-rows: 1fr 15fr;
     grid-row-gap: 1em;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-
 }
 
 .slides-grid {
@@ -45,15 +39,6 @@ input {
     grid-auto-rows: 25vh;
     overflow-y: scroll;
     font-size: 0.35em;
-}
-
-.add-slide {
-    padding: 5px;
-}
-
-.add-slide-button {
-    width: 100%;
-    height: 100%;
 }
 
 label {
@@ -80,5 +65,12 @@ div.slide {
     padding: 2em;
     font-size: 1em;
     overflow: hidden;
+}
+
+div.non-selectable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 

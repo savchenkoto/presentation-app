@@ -19,11 +19,11 @@ export const SlideIconMenu = ({ slides, menuInfo, closeMenu, changeActiveModalTo
       closeMenu={closeMenu}
     >
       <ContextMenuItem
-        text='Insert slide below'
+        text='Insert slide above'
         onClick={() => changeActiveModalTo(modals.SLIDE_FORM, { position: slideIndex })}
       />
       <ContextMenuItem
-        text='Insert slide above'
+        text='Insert slide below'
         onClick={() => changeActiveModalTo(modals.SLIDE_FORM, { position: slideIndex + 1 })}
       />
       <ContextMenuItem

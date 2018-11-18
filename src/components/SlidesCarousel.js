@@ -5,8 +5,11 @@ import '../styles/slideCarousel.css'
 import { changeActiveSlide } from '../actions/slides'
 import Icon from './Icon'
 import { icons } from '../svg/icons'
+import SlidePlaceholder from './SlidePlaceholder'
+import { changeActiveModalTo } from '../actions/modals'
+import { modals } from './modals/modals'
 
-const SlidesCarousel = ({ slides, activeSlideId, changeActiveSlide }) => {
+const SlidesCarousel = ({ slides, activeSlideId, changeActiveSlide, addSlide }) => {
 
   const activeSlide = activeSlideId && slides.find(slide => slide.id === activeSlideId)
   const currentIndex = activeSlideId && slides.findIndex(item => item.id === activeSlideId)
@@ -19,7 +22,7 @@ const SlidesCarousel = ({ slides, activeSlideId, changeActiveSlide }) => {
     index > 0 && changeActiveSlide(slides[index - 1].id)
   }
 
-  return (
+  return activeSlideId ?
     <div className='carousel grid'>
       <div
         className='navigate left'
@@ -40,8 +43,8 @@ const SlidesCarousel = ({ slides, activeSlideId, changeActiveSlide }) => {
           <Icon icon={icons.RIGHT_ARROW} viewBox='0 0 640 1024'/>
         </div>
       </div>
-    </div>
-  )
+    </div> :
+    <SlidePlaceholder addSlide={addSlide}/>
 }
 
 const mapStateToProps = (state) => ({
@@ -50,7 +53,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  changeActiveSlide: (slideId) => dispatch(changeActiveSlide(slideId))
+  changeActiveSlide: (slideId) => dispatch(changeActiveSlide(slideId)),
+  addSlide: () => dispatch(changeActiveModalTo(modals.SLIDE_FORM))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesCarousel)

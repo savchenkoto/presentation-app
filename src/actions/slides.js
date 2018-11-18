@@ -87,7 +87,7 @@ const slideDeleted = (slideId) => {
 
 export const changeActiveSlide = (slideId) => {
   return {
-    type: types.CHANGE_ACTIVE_SLIDE,
+    type: types.ACTIVE_SLIDE_CHANGED,
     slideId
   }
 }

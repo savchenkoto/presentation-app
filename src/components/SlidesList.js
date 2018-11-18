@@ -5,6 +5,8 @@ import { dropSlide, grabSlide, moveGrabbedSlideTo } from '../actions/grabbedSlid
 import { changeActiveModalTo } from '../actions/modals'
 import SlideIcon from './SlideIcon'
 import { changeActiveContextMenu } from '../actions/contextMenu'
+import AddSlidePlaceholder from './AddSlidePlaceholder'
+import { modals } from './modals/modals'
 
 
 class SlidesList extends Component {
@@ -47,10 +49,11 @@ class SlidesList extends Component {
       dropSlide,
       grabbedSlide,
       changeActiveContextMenu,
+      addSlide
     } = this.props
 
     return (
-      <div className='slides-grid box'>
+      <div className='slides-grid'>
         {slides.map((item, index) => (
           <SlideIcon
             key={item.id}
@@ -65,6 +68,7 @@ class SlidesList extends Component {
             changeActiveContextMenu={changeActiveContextMenu}
           />
         ))}
+        {slides.length ? <AddSlidePlaceholder addSlide={addSlide}/> : ''}
       </div>
     )
   }
@@ -83,7 +87,8 @@ const mapDispatchToProps = (dispatch) => ({
   grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),
   moveGrabbedSlide: (position) => dispatch(moveGrabbedSlideTo(position)),
   dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to)),
-  changeActiveContextMenu: ({ component, coords, props }) => dispatch(changeActiveContextMenu(component, coords, props))
+  changeActiveContextMenu: ({ component, coords, props }) => dispatch(changeActiveContextMenu(component, coords, props)),
+  addSlide: () => dispatch(changeActiveModalTo(modals.SLIDE_FORM))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SlidesList)

@@ -1,5 +1,5 @@
 .slide-placeholder {
-    padding: 50px 50px;
+    padding: 3em 3em;
 }
 
 .bordered {
@@ -22,7 +22,7 @@
 }
 
 .bordered > span {
-    font-size: 50px;
+    font-size: 3em;
     color: darkgrey;
     font-weight: bold;
 }

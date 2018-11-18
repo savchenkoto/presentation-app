@@ -1,0 +1,11 @@
+.add-placeholder {
+    display: grid;
+    border: 3px dashed #DDDDDD;
+    border-radius: 2px;
+    align-content: center;
+    justify-content: center;
+}
+
+.add-placeholder:hover {
+    border-color: #bfbfbf;
+}

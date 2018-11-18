@@ -36,7 +36,7 @@ const mapStateToProps = (state) => {
       },
       position: state.slides.findIndex(item => item.id === data.slide.id) + 1
     },
-    position: data.position
+    position: data.position || state.slides.length
   }
 }
 

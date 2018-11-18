@@ -1,15 +1,16 @@
 .context-menu {
     display: grid;
     tab-index: 0;
+    color: #343434;
     width: 8vw;
     height: 15vh;
     z-index: 1;
     min-width: 150px;
     min-height: 100px;
-    box-shadow: 0 0 3px #565656;
-    border: 1px solid darkgrey;
-    background-color: lightgray;
-    border-radius: 3px;
+    box-shadow: 0 0 5px #B0B0B0;
+    border: 1px solid #B0B0B0;
+    background-color: #EDEEF0;
+    border-radius: 2px;
     position: fixed;
     visibility: hidden;
     top: 0;
@@ -28,5 +29,5 @@
     align-content: center;
 }
 .context-menu-item:hover {
-    background-color: #bdbdbd;
+    background-color: #DDDDDD;
 }

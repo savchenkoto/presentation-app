@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { fetchSlides, changeActiveSlide } from '../actions/slides'
 import { dropSlide, grabSlide, moveGrabbedSlideTo } from '../actions/grabbedSlide'
 import { changeActiveModalTo } from '../actions/modals'
-import { modals } from './modals/modals'
 import SlideIcon from './SlideIcon'
 import { changeActiveContextMenu } from '../actions/contextMenu'
 
@@ -42,7 +41,6 @@ class SlidesList extends Component {
 
     const {
       slides,
-      changeActiveModal,
       activeSlideId,
       grabSlide,
       moveGrabbedSlide,
@@ -60,14 +58,6 @@ class SlidesList extends Component {
             slide={item}
             isActive={activeSlideId === item.id}
             changeActiveSlide={() => this.handleClick(item.id)}
-            deleteSlide={() => changeActiveModal({
-              modal: modals.DELETE_CONFIRMATION,
-              props: {slide: item}
-            })}
-            editSlide={() => changeActiveModal({
-              modal: modals.SLIDE_FORM,
-              props: {slide: item}
-            })}
             grabSlide={grabSlide}
             moveGrabbedSlide={moveGrabbedSlide}
             dropSlide={dropSlide}

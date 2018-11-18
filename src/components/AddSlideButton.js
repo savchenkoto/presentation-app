@@ -6,7 +6,7 @@ import { modals } from './modals/modals'
 const AddSlideButton = ({ openAddSlideModal }) => {
 
   return (
-    <div className='add-slide box'>
+    <div className='add-slide'>
       <button className='add-slide-button'
               onClick={openAddSlideModal}
       >

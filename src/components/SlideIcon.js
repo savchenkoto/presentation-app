@@ -5,10 +5,6 @@ import { componentsWithContextMenu } from './contextMenu/supportedComponents'
 
 class SlideIcon extends Component {
 
-  state = {
-    hovered: false,
-  }
-
   handleSlideGrab = () => {
     const { slide, index, grabSlide } = this.props
     grabSlide(slide, index)
@@ -36,13 +32,10 @@ class SlideIcon extends Component {
   }
 
   render() {
-    const { dragging } = this.state
     const { changeActiveSlide, slide, index, isActive } = this.props
     return (
       <div
-        className={`slide-icon-grid ${isActive ? 'active' : ''} ${dragging ? 'dragging' : ''}`}
-        onMouseEnter={() => this.setState({ hovered: true })}
-        onMouseLeave={() => this.setState({ hovered: false })}
+        className={`slide-icon grid ${isActive ? 'active' : ''}`}
         onClick={changeActiveSlide}
         onContextMenu={this.handleRightClick}
         onDragStart={this.handleSlideGrab}
@@ -50,11 +43,11 @@ class SlideIcon extends Component {
         onDragEnd={this.handleDrop}
         draggable={true}
       >
-        <div className='slide-info'>
+        <div className='info'>
           <span>{index + 1}</span>
         </div>
-        <div className='slide-icon-wrapper'>
-          <Slide slide={slide}/>
+        <div className={`slide-icon-wrapper ${isActive ? 'active' : ''}`}>
+          <Slide slide={slide} className='icon'/>
         </div>
       </div>
     )

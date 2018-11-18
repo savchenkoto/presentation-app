@@ -54,7 +54,7 @@ class Index extends Component {
     let { exit } = this.props
     return (
       <form className='add-slide-form'>
-        <div className='grid'>
+        <div className='main'>
           <div className='form-input'>
             <input
               name='header'
@@ -73,8 +73,8 @@ class Index extends Component {
           </div>
         </div>
         <footer className='section'>
-          <button type='submit' onClick={this.submit}>Submit</button>
-          <button onClick={exit}>Cancel</button>
+          <button className='modal-button' type='submit' onClick={this.submit}>Submit</button>
+          <button className='modal-button' onClick={exit}>Cancel</button>
         </footer>
       </form>
     )

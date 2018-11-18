@@ -1,22 +1,20 @@
-div.carousel-grid {
-    position: relative;
-    display: grid;
+div.carousel.grid {
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr;
 }
 
-div.carousel-grid > .navigate svg  {
+div.carousel.grid > .navigate svg  {
     fill: #a3a2a7;
     width: 40px;
     height: 40px;
     display: none;
 }
 
-div.carousel-grid > .navigate:hover svg {
+div.carousel.grid > .navigate:hover svg {
     display: block;
 }
 
-div.carousel-grid > .navigate.left {
+div.carousel.grid > .navigate.left {
     display: grid;
     grid-column: 1;
     grid-row: 1;
@@ -24,39 +22,39 @@ div.carousel-grid > .navigate.left {
     align-content: center;
 }
 
-div.carousel-grid > .navigate.left svg {
+div.carousel.grid > .navigate.left svg {
     margin-left: 10px;
 }
 
-div.carousel-grid > .navigate.left:hover {
+div.carousel.grid > .navigate.left:hover {
     background: linear-gradient(90deg, rgba(185, 185, 178, 0.51), rgba(176, 176, 176, 0));
 }
 
-div.carousel-grid > .navigate.right {
+div.carousel.grid > .navigate.right {
     display: grid;
     grid-row: 1;
     grid-column: 3;
     align-content: center;
 }
 
-div.carousel-grid > .navigate.right svg {
+div.carousel.grid > .navigate.right svg {
     margin-right: 10px;
     float: right;
 }
 
-div.carousel-grid > .navigate > .icon-wrapper {
+div.carousel.grid > .navigate > .icon-wrapper {
 
 }
 
-div.carousel-grid > .navigate.right:hover {
+div.carousel.grid > .navigate.right:hover {
     background: linear-gradient(-90deg, rgba(185, 185, 178, 0.51), rgba(176, 176, 176, 0));
 }
 
-div.carousel-grid > .navigate.right:hover span {
+div.carousel.grid > .navigate.right:hover span {
     display: block;
 }
 
-div.carousel-grid > .content {
+div.carousel.grid > .content {
     display: grid;
     grid-row: 1;
     grid-column-start: 1;

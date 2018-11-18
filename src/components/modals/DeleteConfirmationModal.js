@@ -23,8 +23,8 @@ function DeleteConfirmationModal ({ slideIdToDelete, deleteSlide, exit }) {
         <p>Are you sure you want to delete it?</p>
       </div>
       <footer className='section'>
-        <button onClick={handleConfirm}>Confirm</button>
-        <button onClick={exit}>Dismiss</button>
+        <button className='modal-button' onClick={handleConfirm}>Confirm</button>
+        <button className='modal-button' onClick={exit}>Dismiss</button>
       </footer>
     </ModalWrapper>
   )

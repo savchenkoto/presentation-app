@@ -6,12 +6,15 @@ import ContextMenuSwitcher from './contextMenu/ContextMenuSwitcher'
 
 const Presentation = () => {
   return (
-    <div className='grid'>
-      <Sidebar/>
-      <SlidesCarousel/>
-      <ModalsSwitcher/>
-      <ContextMenuSwitcher/>
+    <div className='root grid'>
+      <div className='main grid'>
+        <Sidebar/>
+        <SlidesCarousel/>
+        <ModalsSwitcher/>
+        <ContextMenuSwitcher/>
+      </div>
     </div>
+
   )
 }
 

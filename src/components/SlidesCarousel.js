@@ -20,7 +20,7 @@ const SlidesCarousel = ({ slides, activeSlideId, changeActiveSlide }) => {
   }
 
   return (
-    <div className='box carousel-grid'>
+    <div className='carousel grid'>
       <div
         className='navigate left'
         onClick={() => prevSlide(currentIndex)}

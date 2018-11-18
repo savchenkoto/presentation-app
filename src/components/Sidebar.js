@@ -3,7 +3,7 @@ import SlidesList from './SlidesList'
 
 const Sidebar = () => {
   return (
-    <div className='sidebar sidebar-grid non-selectable'>
+    <div className='sidebar grid non-selectable'>
       <SlidesList/>
     </div>
   )

@@ -1,22 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Presentation from './components/Presentation'
-import { createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { Provider } from 'react-redux'
-import rootReducer from './reducers'
+import configureStore from './configureStore'
+import Root from './components/Root'
 import './index.css'
 import './styles/scrollbar.css'
 
-
-export const store = createStore(
-  rootReducer,
-  composeWithDevTools()
-)
+const store = configureStore()
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Presentation/>
-  </Provider>,
+  <Root store={store}/>,
   document.getElementById('root')
 )

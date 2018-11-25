@@ -36,7 +36,9 @@ const mapStateToProps = (state) => {
       },
       position: state.slides.findIndex(item => item.id === data.slide.id) + 1
     },
-    position: data.position || state.slides.length
+    position: typeof data.position === 'undefined' ?
+      state.slides.length :
+      data.position
   }
 }
 

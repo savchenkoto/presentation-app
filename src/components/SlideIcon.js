@@ -16,8 +16,8 @@ class SlideIcon extends Component {
   }
 
   handleDrop = () => {
-    const { dropSlide, grabbedSlide } = this.props
-    dropSlide(grabbedSlide.slide, grabbedSlide.position)
+    const { dropSlide, grabbedSlide, index } = this.props
+    dropSlide(grabbedSlide.slide, grabbedSlide.position, index)
   }
 
   handleRightClick = (e) => {

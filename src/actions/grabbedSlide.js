@@ -18,8 +18,8 @@ export const moveGrabbedSlideTo = (position) => {
   }
 }
 
-export const dropSlide = (dispatch, slide, to) => {
-  moveSlide(dispatch, slide, to)
+export const dropSlide = (dispatch, slide, to, initialPosition) => {
+  initialPosition !== to && moveSlide(dispatch, slide, to)
   return {
     type: types.SLIDE_DROPPED,
   }

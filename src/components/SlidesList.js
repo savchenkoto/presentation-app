@@ -84,7 +84,7 @@ const mapDispatchToProps = (dispatch) => ({
   changeActiveSlide: (slideId) => dispatch(changeActiveSlide(slideId)),
   grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),
   moveGrabbedSlideTo: (position) => dispatch(moveGrabbedSlideTo(position)),
-  dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to)),
+  dropSlide: (slide, to, initialPosition) => dispatch(dropSlide(dispatch, slide, to, initialPosition)),
   changeActiveContextMenu: ({ component, coords, props }) => dispatch(changeActiveContextMenu(component, coords, props)),
   addSlide: () => dispatch(changeActiveModalTo(modals.SLIDE_FORM))
 })

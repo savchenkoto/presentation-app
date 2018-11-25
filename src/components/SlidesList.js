@@ -11,6 +11,11 @@ import { modals } from './modals/modals'
 
 class SlidesList extends Component {
 
+  componentDidMount () {
+    const { changeActiveSlide, slides } = this.props
+    slides && slides.length && changeActiveSlide(slides[0].id)
+  }
+
   componentDidUpdate (prevProps) {
     const { slides, activeSlideId, changeActiveSlide } = this.props;
     if (!activeSlideId && slides.length) {
@@ -40,7 +45,7 @@ class SlidesList extends Component {
       slides,
       activeSlideId,
       grabSlide,
-      moveGrabbedSlide,
+      moveGrabbedSlideTo,
       dropSlide,
       grabbedSlide,
       changeActiveContextMenu,
@@ -57,7 +62,7 @@ class SlidesList extends Component {
             isActive={activeSlideId === item.id}
             changeActiveSlide={() => this.handleClick(item.id)}
             grabSlide={grabSlide}
-            moveGrabbedSlide={moveGrabbedSlide}
+            moveGrabbedSlideTo={moveGrabbedSlideTo}
             dropSlide={dropSlide}
             grabbedSlide={grabbedSlide}
             changeActiveContextMenu={changeActiveContextMenu}
@@ -77,9 +82,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   changeActiveSlide: (slideId) => dispatch(changeActiveSlide(slideId)),
-  changeActiveModal: ({ modal, props }) => dispatch(changeActiveModalTo(modal, props)),
   grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),
-  moveGrabbedSlide: (position) => dispatch(moveGrabbedSlideTo(position)),
+  moveGrabbedSlideTo: (position) => dispatch(moveGrabbedSlideTo(position)),
   dropSlide: (slide, to) => dispatch(dropSlide.bind(null, dispatch)(slide, to)),
   changeActiveContextMenu: ({ component, coords, props }) => dispatch(changeActiveContextMenu(component, coords, props)),
   addSlide: () => dispatch(changeActiveModalTo(modals.SLIDE_FORM))

@@ -11,8 +11,8 @@ class SlideIcon extends Component {
   }
 
   onDragEnter = () => {
-    const { index, moveGrabbedSlide, grabbedSlide } = this.props
-    grabbedSlide.position !== index && moveGrabbedSlide(index)
+    const { index, moveGrabbedSlideTo, grabbedSlide } = this.props
+    grabbedSlide.position !== index && moveGrabbedSlideTo(index)
   }
 
   handleDrop = () => {

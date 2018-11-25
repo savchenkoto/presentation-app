@@ -8,7 +8,6 @@ import { changeActiveContextMenu } from '../actions/contextMenu'
 import AddSlidePlaceholder from './AddSlidePlaceholder'
 import { modals } from './modals/modals'
 
-
 class SlidesList extends Component {
 
   componentDidMount () {

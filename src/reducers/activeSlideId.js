@@ -1,6 +1,5 @@
 import * as types from '../actions/types'
 
-
 export default function activeSlideId (state = 0, action) {
   switch (action.type) {
     case types.ACTIVE_SLIDE_CHANGED: {

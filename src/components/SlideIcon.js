@@ -47,7 +47,7 @@ class SlideIcon extends Component {
           <span>{index + 1}</span>
         </div>
         <div className={`slide-icon-wrapper ${isActive ? 'active' : ''}`}>
-          <Slide slide={slide} className='icon'/>
+          <Slide slide={slide}/>
         </div>
       </div>
     )

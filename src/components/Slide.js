@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Slide = ({ slide, className }) => {
+const Slide = ({ slide }) => {
   return (
-    <div className={`slide ${className}`}>
+    <div className='slide'>
       <div className='header'>
         <h1>{slide && slide.header}</h1>
       </div>

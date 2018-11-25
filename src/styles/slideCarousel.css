@@ -1,5 +1,7 @@
 div.carousel.grid {
     grid-template-columns: 1fr 10fr 1fr;
+    max-height: 100vh;
+    overflow-y: hidden;
     grid-template-rows: 1fr;
 }
 
@@ -40,10 +42,6 @@ div.carousel.grid > .navigate.right {
 div.carousel.grid > .navigate.right svg {
     margin-right: 10px;
     float: right;
-}
-
-div.carousel.grid > .navigate > .icon-wrapper {
-
 }
 
 div.carousel.grid > .navigate.right:hover {

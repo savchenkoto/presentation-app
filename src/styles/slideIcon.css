@@ -25,6 +25,7 @@ div.slide-icon-wrapper {
     border: 3px solid #DDDDDD;
     border-radius: 3px;
     box-sizing: border-box;
+    overflow-y: hidden;
 }
 
 div.slide-icon-wrapper:hover {
@@ -35,11 +36,6 @@ div.slide-icon-wrapper.active {
     box-sizing: border-box;
     border: 3px solid #666666;
 }
-
-/*div.slide.icon {*/
-    /*border-radius: 2px;*/
-    /*border: 3px solid #DDDDDD;*/
-/*}*/
 
 
 

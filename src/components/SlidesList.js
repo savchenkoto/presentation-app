@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchSlides, changeActiveSlide } from '../actions/slides'
+import { changeActiveSlide } from '../actions/slides'
 import { dropSlide, grabSlide, moveGrabbedSlideTo } from '../actions/grabbedSlide'
 import { changeActiveModalTo } from '../actions/modals'
 import SlideIcon from './SlideIcon'
@@ -10,11 +10,6 @@ import { modals } from './modals/modals'
 
 
 class SlidesList extends Component {
-
-  componentDidMount () {
-    const { fetchSlides } = this.props
-    fetchSlides()
-  }
 
   componentDidUpdate (prevProps) {
     const { slides, activeSlideId, changeActiveSlide } = this.props;
@@ -81,7 +76,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchSlides: () => dispatch(fetchSlides()),
   changeActiveSlide: (slideId) => dispatch(changeActiveSlide(slideId)),
   changeActiveModal: ({ modal, props }) => dispatch(changeActiveModalTo(modal, props)),
   grabSlide: (slide, position) => dispatch(grabSlide(slide, position)),

@@ -1,11 +1,11 @@
 import React from 'react'
 import ModalWrapper from './ModalWrapper'
-import AddSlideForm from '../AddSlideForm'
-import { addSlide, editSlide } from '../../actions/slides'
+import AddSlideForm from '../SlideForm'
+import { addSlide, updateSlide } from '../../actions/slides'
 import { closeActiveModal } from '../../actions/modals'
 import { connect } from 'react-redux'
 
-const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, editSlide, exit, position }) => {
+const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, updateSlide, exit, position }) => {
 
   return (
     <ModalWrapper
@@ -18,7 +18,7 @@ const SlideFormModal = ({ slidesCount, slideToEdit, addSlide, editSlide, exit, p
         slidesCount={slidesCount}
         slideToEdit={slideToEdit}
         addSlide={addSlide}
-        editSlide={editSlide}
+        updateSlide={updateSlide}
         exit={exit}
         position={position}
       />
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   addSlide: ({ slide, position }) => dispatch(addSlide({ slide, position })),
-  editSlide: ({ slide, position }) => editSlide(dispatch, { slide, position }),
+  updateSlide: (slide, position) => dispatch(updateSlide(slide, position)),
   exit: () => dispatch(closeActiveModal())
 })
 

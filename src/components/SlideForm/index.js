@@ -24,21 +24,19 @@ class Index extends Component {
 
   submit = (e) => {
     e.preventDefault()
-    const { addSlide, editSlide, slideToEdit, exit, position } = this.props
+    const { addSlide, updateSlide, slideToEdit, exit, position } = this.props
     const slide = {
       header: this.headerInput.value,
       text: this.textInput.value
     }
     this.mode === modes.ADD ?
       addSlide({ slide, position }) :
-      editSlide({
-        slide: {
+      updateSlide({
           ...slide,
           id: slideToEdit.slide.id,
         },
         position
-      })
-
+      )
 
     this.clearInputs()
     exit()
